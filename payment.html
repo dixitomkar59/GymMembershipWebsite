@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Payment - Momentum Fitness Studio</title>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, nav, header, footer, main, section, div, img, form, input, textarea, button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f39c12;
+            --text-color-dark: #333;
+            --text-color-light: #777;
+            --background-light: #f9f9f9;
+            --background-white: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--background-white);
+            padding: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--secondary-color);
+            color: var(--background-white);
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #e08e0b;
+        }
+
+        footer {
+            background-color: var(--text-color-dark);
+            color: var(--background-light);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid #555;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer nav ul {
+            display: flex;
+        }
+
+        footer nav li {
+            margin-left: 12px;
+        }
+
+        footer nav a {
+            color: #ddd;
+            transition: color 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        footer nav a:hover {
+            color: var(--background-white);
+        }
+
+        #payment-hero {
+            padding: 60px 0 40px 0;
+            text-align: center;
+        }
+
+        #payment-hero h2 {
+            font-size: 2.6em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        #payment-hero p {
+            font-size: 1.1em;
+            color: var(--text-color-light);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        #payment-form-section {
+            padding: 40px 0;
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        #payment-form-section h2 {
+            font-size: 2.2em;
+            color: var(--text-color-dark);
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        #payment-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--background-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+
+        .form-group label {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            padding: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1em;
+            color: var(--text-color-dark);
+            font-family: inherit;
+        }
+
+        #payment-form button[type="submit"] {
+            align-self: center;
+            width: fit-content;
+        }
+
+        #payment-confirmation {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background-color: var(--background-white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        #payment-confirmation h3 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        #payment-confirmation p {
+            font-size: 1.1em;
+            color: var(--text-color-light);
+        }
+
+        .membership-listing {
+            background-color: var(--background-white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .membership-listing h3 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .membership-listing ul {
+            line-height: 1.8;
+        }
+
+        .membership-listing li {
+            margin-bottom: 8px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Momentum Fitness Studio</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+		    <li><a href="memberships.html">Memberships</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="payment-hero">
+            <div class="container">
+                <h2>Secure Membership Payment</h2>
+                <p>Please review your membership selection and enter your payment details below to complete your purchase.</p>
+            </div>
+        </section>
+
+        <section id="payment-form-section">
+            <div class="container">
+                <h2>Membership Options and Payment</h2>
+
+                <div class="membership-listing">
+                    <h3>Your Selected Membership</h3>
+                    <ul id="selected-membership-details">
+                        <li><b>Membership Type:</b> <span id="display-membership-type"></span></li>
+                        <li><b>Amount:</b> $<span id="display-membership-amount"></span></li>
+                    </ul>
+                </div>
+
+                <h2>Enter Payment Information</h2>
+                <form id="payment-form">
+                    <div class="form-group" style="display:none;"> <label for="membership-type">Membership Type</label>
+                        <input type="text" id="membership-type" name="membership-type" value="" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardholder-name">Cardholder Name</label>
+                        <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Name on Card" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="Card Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry-date">Expiry Date (MM/YY)</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+                    </div>
+
+                    <button type="submit" class="button">Pay Now</button>
+                </form>
+                <div id="payment-confirmation">
+                    <h3>Payment Successful!</h3>
+                    <p>Thank you for purchasing your Momentum Fitness Studio membership. You are now one step closer to achieving your fitness goals! We've sent a confirmation email to your provided email address.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Momentum Fitness Studio. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentForm = document.getElementById('payment-form');
+            const paymentConfirmationDiv = document.getElementById('payment-confirmation');
+            const membershipTypeInput = document.getElementById('membership-type');
+            const displayMembershipTypeSpan = document.getElementById('display-membership-type');
+            const displayMembershipAmountSpan = document.getElementById('display-membership-amount');
+
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const membershipType = urlParams.get('membership');
+            let membershipName = "";
+            let membershipAmount = 0;
+
+            if (membershipType === 'gym-access') {
+                membershipName = "Gym Access Membership";
+                membershipAmount = 99.99;
+            } else if (membershipType === 'all-inclusive') {
+                membershipName = "All Inclusive Membership";
+                membershipAmount = 149.99;
+            } else {
+                membershipName = "No Membership Selected"; // Default or error handling
+                membershipAmount = 0;
+            }
+
+            membershipTypeInput.value = membershipType; // Hidden input still gets value for form submission if needed
+            displayMembershipTypeSpan.textContent = membershipName;
+            displayMembershipAmountSpan.textContent = membershipAmount.toFixed(2);
+
+
+            paymentForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                paymentForm.style.display = 'none';
+                paymentConfirmationDiv.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

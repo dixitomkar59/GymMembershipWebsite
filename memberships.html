@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memberships - Momentum Fitness Studio</title>
+    <style>
+        /* Reusing styles from other pages for consistency */
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, nav, header, footer, main, section, div, img,  a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f39c12;
+            --text-color-dark: #333;
+            --text-color-light: #777;
+            --background-light: #f9f9f9;
+            --background-white: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--background-white);
+            padding: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: var(--text-color-dark);
+            color: var(--background-light);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid #555;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer nav ul {
+            display: flex;
+        }
+
+        footer nav li {
+            margin-left: 12px;
+        }
+
+        footer nav a {
+            color: #ddd;
+            transition: color 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        footer nav a:hover {
+            color: var(--background-white);
+        }
+
+        #memberships-hero {
+            padding: 60px 0 40px 0;
+            text-align: center;
+        }
+
+        #memberships-hero h2 {
+            font-size: 2.6em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        #memberships-hero p {
+            font-size: 1.1em;
+            color: var(--text-color-light);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .memberships-section {
+            padding: 40px 0;
+            background-color: var(--background-white);
+        }
+
+        .memberships-section:nth-child(odd) {
+            background-color: var(--background-light);
+        }
+
+        .memberships-section h2 {
+            font-size: 2em;
+            color: var(--text-color-dark);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #membership-plans .pricing-table {
+            max-width: 900px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns */
+            gap: 30px;
+        }
+
+        .pricing-plan {
+            background-color: var(--background-white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-plan h3 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .pricing-plan .price {
+            font-size: 2.2em;
+            color: black; /* Price in black as requested */
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .pricing-plan ul {
+            margin-bottom: 30px;
+            text-align: left; /* Align list to the left */
+        }
+
+        .pricing-plan li {
+            padding: 10px 0;
+            font-size: 1em;
+            color: var(--text-color-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-plan li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-plan li del {
+            color: #aaa;
+        }
+
+        .membership-cta {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .purchase-button {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Momentum Fitness Studio</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+                    <li><a href="memberships.html">Memberships</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="memberships-hero">
+            <div class="container">
+                <h2>Choose Your Membership</h2>
+                <p>Unlock your fitness potential with our flexible membership options. Whether you need basic gym access or the full all-inclusive experience, we have a plan for you.</p>
+            </div>
+        </section>
+
+        <section id="membership-plans" class="memberships-section">
+            <div class="container">
+                <h2>Our Membership Plans</h2>
+                <div class="pricing-table">
+                    <div class="pricing-plan">
+                        <h3>Gym Access</h3>
+                        <p class="price">$99.99/month</p>
+                        <ul>
+                            <li>Unlimited gym access during opening hours</li>
+                            <li>Access to basic gym equipment</li>
+                            <li>Locker and shower facilities</li>
+                            <li><del>Access to group fitness classes</del></li>
+                            <li><del>Personal training sessions</del></li>
+                            <li><del>Nutritional guidance</del></li>
+                        </ul>
+                        <div class="membership-cta">
+                            <a href="payment.html?membership=gym-access" class="button purchase-button">Purchase Gym Access</a>
+                        </div>
+                    </div>
+
+                    <div class="pricing-plan">
+                        <h3>All Inclusive</h3>
+                        <p class="price">$149.99/month</p>
+                        <ul>
+                            <li>Unlimited gym access during opening hours</li>
+                            <li>Access to premium gym equipment & facilities</li>
+                            <li>Locker and shower facilities</li>
+                            <li>Unlimited access to group fitness classes</li>
+                            <li>Two personal training sessions per month</li>
+                            <li>Personalized nutritional guidance</li>
+                        </ul>
+                        <div class="membership-cta">
+                            <a href="payment.html?membership=all-inclusive" class="button purchase-button">Purchase All Inclusive</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Momentum Fitness Studio. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                    <li><a href="https://x.com/">Twitter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

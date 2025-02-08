@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum Fitness Studio - Unlock Your Potential</title>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, nav, header, footer, main, section, div, img {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f39c12;
+            --text-color-dark: #333;
+            --text-color-light: #777;
+            --background-light: #f9f9f9;
+            --background-white: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--background-white);
+            padding: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        #hero {
+            background-color: var(--background-light);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        #hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 40%;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #hero h1 {
+            font-size: 2.6em;
+            margin-bottom: 10px;
+            color: var(--text-color-dark);
+            font-weight: bold;
+        }
+
+        #hero p {
+            font-size: 1.1em;
+            color: var(--text-color-light);
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 22px;
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        #why-choose-us {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--background-white);
+        }
+
+        #why-choose-us h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: var(--text-color-dark);
+            font-weight: bold;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .reason {
+            padding: 25px;
+            background-color: var(--background-light);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .reason h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--text-color-dark);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .reason p {
+            color: var(--text-color-light);
+            font-size: 0.95em;
+            text-align: left;
+        }
+
+        #membership-options {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--background-light);
+        }
+
+        #membership-options h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: var(--text-color-dark);
+            font-weight: bold;
+        }
+
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .membership-item {
+            background-color: var(--background-white);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            text-align: left;
+        }
+
+        .membership-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .membership-item p {
+            color: var(--text-color-light);
+            margin-bottom: 20px;
+        }
+
+        .membership-item .button {
+            display: inline-block;
+            text-align: center;
+        }
+
+        #testimonials {
+            padding: 50px 0;
+            background-color: var(--background-white);
+            text-align: center;
+        }
+
+        #testimonials h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: var(--text-color-dark);
+            font-weight: bold;
+        }
+
+        .testimonial-slider {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            padding: 25px;
+            background-color: var(--background-light);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
+        }
+
+        .testimonial p:first-of-type {
+            font-style: italic;
+            font-size: 1.1em;
+            color: var(--text-color-light);
+            margin-bottom: 10px;
+        }
+
+        .testimonial p:last-of-type {
+            font-weight: bold;
+            color: var(--text-color-dark);
+            font-size: 0.95em;
+        }
+
+        #contact-cta {
+            padding: 60px 0;
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            text-align: center;
+        }
+
+        #contact-cta h2 {
+            font-size: 2.6em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        #contact-cta p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        #contact-cta .button {
+            background-color: var(--background-white);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        #contact-cta .button:hover {
+            background-color: #f0f0f0;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--text-color-dark);
+            color: var(--background-light);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid #555;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer nav ul {
+            display: flex;
+        }
+
+        footer nav li {
+            margin-left: 12px;
+        }
+
+        footer nav a {
+            color: #ddd;
+            transition: color 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        footer nav a:hover {
+            color: var(--background-white);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Momentum Fitness Studio</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+	 	    <li><a href="memberships.html">Memberships</a></li>	
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Unlock Your Potential at Momentum Fitness Studio</h1>
+                    <p>Achieve your fitness goals with our state-of-the-art facilities, expert trainers, and supportive community. Join us today and transform your life!</p>
+                    <a href="contact.html" class="button">Join Now - Get a Free Trial</a>
+                </div>
+                <div class="hero-image">
+                    <img src="image1.png" alt="Gym Hero Image - People working out">
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us">
+            <div class="container">
+                <h2>Why Choose Momentum Fitness Studio?</h2>
+                <div class="reasons-grid">
+                    <div class="reason">
+                        <h3><b>Top-Tier Equipment</b></h3>
+                        <p>Access the latest cardio and strength training equipment to maximize your workouts.</p>
+                    </div>
+                    <div class="reason">
+                        <h3><b>Expert Certified Trainers</b></h3>
+                        <p>Our certified personal trainers are dedicated to helping you reach your individual fitness goals.</p>
+                    </div>
+                    <div class="reason">
+                        <h3><b>Diverse Fitness Classes</b></h3>
+                        <p>From Zumba to Yoga, HIIT to Spin, find the perfect class to keep you motivated and engaged.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="membership-options">
+            <div class="container">
+                <h2>Membership Options</h2>
+                <div class="membership-grid">
+                    <div class="membership-item">
+                        <h3>Gym Access</h3>
+                        <p>Get full access to our state-of-the-art gym equipment, including cardio machines, weightlifting areas, and more. Perfect for independent workouts.</p>
+                        <a href="memberships.html" class="button">Choose Gym Access</a>
+                    </div>
+                    <div class="membership-item">
+                        <h3>All-Inclusive</h3>
+                        <p>Unlock the full Momentum Fitness Studio experience! Includes gym access, plus access to all fitness classes, sauna and steam room, and personalized training plans.</p>
+                        <a href="memberships.html" class="button">Choose All-Inclusive</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="testimonials">
+            <div class="container">
+                <h2>Member Success Stories</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <p>"Momentum Fitness Studio has changed my life! I've lost weight, gained confidence, and made amazing friends in the community."</p>
+                        <p>- Sarah J., Gym Member</p>
+                    </div>
+                    <div class="testimonial">
+                        <p>"The trainers here are incredible. They push you to your limits but also provide the support and guidance you need. Best gym I've ever joined at Momentum Fitness Studio!"</p>
+                        <p>- Michael B., Gym Member</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-cta">
+            <div class="container">
+                <h2>Ready to Start Your Fitness Journey?</h2>
+                <p>Contact us today to learn more about membership options and get started!</p>
+                <a href="contact.html" class="button">Contact Us Now</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Momentum Fitness Studio. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                    <li><a href="https://x.com/">Twitter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

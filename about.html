@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Momentum Fitness Studio</title>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, nav, header, footer, main, section, div, img {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f39c12;
+            --text-color-dark: #333;
+            --text-color-light: #777;
+            --background-light: #f9f9f9;
+            --background-white: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--background-white);
+            padding: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 22px;
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: var(--text-color-dark);
+            color: var(--background-light);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid #555;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer nav ul {
+            display: flex;
+        }
+
+        footer nav li {
+            margin-left: 12px;
+        }
+
+        footer nav a {
+            color: #ddd;
+            transition: color 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        footer nav a:hover {
+            color: var(--background-white);
+        }
+
+        #about-hero {
+            padding: 60px 0 30px 0;
+            text-align: center;
+        }
+
+        #about-hero h2 {
+            font-size: 2.3em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        #about-hero p {
+            font-size: 1em;
+            color: var(--text-color-light);
+            max-width: 750px;
+            margin: 0 auto 25px;
+        }
+
+        .about-section {
+            padding: 30px 0;
+            background-color: var(--background-white);
+        }
+
+        .about-section:nth-child(odd) {
+            background-color: var(--background-light);
+        }
+
+        .about-section h2 {
+            font-size: 2em;
+            color: var(--text-color-dark);
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .about-section p {
+            font-size: 1em;
+            color: var(--text-color-light);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .about-section ul {
+            max-width: 800px;
+            margin: 15px auto;
+        }
+
+        .about-section li {
+            font-size: 1em;
+            color: var(--text-color-light);
+            padding: 7px 0;
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        #gym-gallery {
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        #gym-gallery h2 {
+            font-size: 2em;
+            color: var(--text-color-dark);
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.04);
+        }
+
+        #about-cta {
+            padding: 50px 0;
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        #about-cta h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        #about-cta p {
+            font-size: 1em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        #about-cta .button {
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            font-weight: 600;
+        }
+
+        #about-cta .button:hover {
+            background-color: #2980b9;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Momentum Fitness Studio</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+		    <li><a href="memberships.html">Memberships</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="about-hero">
+            <div class="container">
+                <h2>About Momentum Fitness Studio</h2>
+                <p>Welcome to Momentum Fitness Studio, where your fitness journey gains momentum! We're more than just a gym; we're a community built on the principles of support, progress, and achieving your personal best.  From our state-of-the-art equipment to our expert trainers and diverse class offerings, everything we do is designed to help you unlock your full potential and build a healthier, stronger you.</p>
+            </div>
+        </section>
+
+        <section class="about-section" id="what-we-offer">
+            <div class="container">
+                <h2>Our Approach to Fitness</h2>
+                <p>Founded in 2024 by Omkar Dixit with a vision to create a truly supportive fitness environment, Momentum Fitness Studio stands apart. We understand that starting or maintaining a fitness routine can be challenging. That's why we've cultivated a space where intimidation is replaced with inspiration, and where every member feels empowered to move forward, regardless of their starting point. Our mission is simple: to empower you to lead a healthier, more fulfilling life.</p><br>
+
+                <p><b>What makes Momentum Fitness Studio the right choice for you?</b></p>
+                <ul>
+                    <li><b>Exceptional Equipment:</b> We invest in the latest, top-of-the-line cardio and strength training equipment.  Whether you're into high-intensity interval training, weightlifting, or endurance work, you'll find the tools you need to maximize every workout.</li>
+                    <li><b>Certified Expert Trainers:</b> Our trainers aren't just knowledgeable; they are passionate about your success.  They provide personalized guidance, develop effective workout plans tailored to your goals, and offer the motivation to keep you going.</li>
+                    <li><b>Diverse and Engaging Classes:</b>  Boredom is the enemy of consistency. That’s why we offer a wide variety of fitness classes, from Zumba and Spin to Yoga and HIIT, ensuring there’s always something new and exciting to keep you engaged and challenged.</li>
+                    <li><b>Flexible Membership Options:</b> We believe fitness should be accessible to everyone.  Our flexible membership options are designed to fit different lifestyles and budgets, ensuring you can find a plan that suits your needs.</li>
+                    <li><b>A Truly Supportive Community:</b>  Join more than just a gym; become part of a community.  At Momentum Fitness Studio, you'll find yourself surrounded by like-minded individuals and staff who are all invested in creating a positive and encouraging atmosphere.</li>
+                </ul>
+                <p>At Momentum Fitness Studio, we are committed to being more than just a facility – we are your partners in fitness. We provide not just the place, but the people, programs, and positive environment you need to build lasting momentum and achieve your health and wellness aspirations. Come experience the Momentum difference – and let's work together to unlock your potential.</p>
+            </div>
+        </section>
+
+
+        <section id="gym-gallery">
+            <div class="container">
+                <h2>Explore Our Studio</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="img1.png" alt="Gym Interior Image 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img2.png" alt="Gym Interior Image 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img3.png" alt="Gym Interior Image 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image1.png" alt="Gym Interior Image 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img4.png" alt="Gym Interior Image 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img5.png" alt="Gym Interior Image 6">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="about-cta">
+            <div class="container">
+                <h2>Ready to Experience Momentum?</h2>
+                <p>Join our community and start building momentum towards your fitness goals today!</p>
+
+                <a href="contact.html" class="button">Get Started Now</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Momentum Fitness Studio. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                    <li><a href="https://x.com/">Twitter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

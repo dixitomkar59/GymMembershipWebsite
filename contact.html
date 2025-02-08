@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Momentum Fitness Studio</title>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, nav, header, footer, main, section, div, img, form, input, textarea, button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f39c12;
+            --text-color-dark: #333;
+            --text-color-light: #777;
+            --background-light: #f9f9f9;
+            --background-white: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--background-white);
+            padding: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 22px;
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: var(--text-color-dark);
+            color: var(--background-light);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid #555;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer nav ul {
+            display: flex;
+        }
+
+        footer nav li {
+            margin-left: 12px;
+        }
+
+        footer nav a {
+            color: #ddd;
+            transition: color 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        footer nav a:hover {
+            color: var(--background-white);
+        }
+
+        #contact-hero {
+            padding: 60px 0 40px 0;
+            text-align: center;
+        }
+
+        #contact-hero h2 {
+            font-size: 2.6em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        #contact-hero p {
+            font-size: 1.1em;
+            color: var(--text-color-light);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        #contact-info-section {
+            padding: 40px 0;
+            background-color: var(--background-white);
+            text-align: center;
+        }
+
+        #contact-info-section h2 {
+            font-size: 2.2em;
+            color: var(--text-color-dark);
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .contact-details-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            padding: 20px;
+            background-color: var(--background-light);
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 15px;
+        }
+
+        .contact-item h3 {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .contact-item p, .contact-item a {
+            font-size: 1em;
+            color: var(--text-color-light);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+
+        #contact-form-section {
+            padding: 50px 0;
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        #contact-form-section h2 {
+            font-size: 2.2em;
+            color: var(--text-color-dark);
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        #contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--background-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+
+        .form-group label {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1em;
+            color: var(--text-color-dark);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        #contact-form button[type="submit"] {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            align-self: center;
+            width: fit-content;
+        }
+
+        #contact-form button[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Momentum Fitness Studio</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+		    <li><a href="memberships.html">Memberships</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact-hero">
+            <div class="container">
+                <h2>Get in Touch with Momentum Fitness Studio</h2>
+                <p>We'd love to hear from you! Contact us with any questions about our memberships, classes, personal training, or anything else. Fill out the form below or use the contact details provided.</p>
+            </div>
+        </section>
+
+        <section id="contact-info-section">
+            <div class="container">
+                <h2>How to Reach Us</h2>
+                <div class="contact-details-list">
+                    <div class="contact-item">
+                        <h3>Visit Us</h3>
+                        <p>1st Floor, Tulsi Prerna, Khanda Colony</p>
+                        <p>Plot 9, Sector - 1, New Panvel West</p>
+                        <p>Navi Mumbai, Maharashtra 410206</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Call Us</h3>
+                        <p><a href="tel:+91 7506654980">+91 7506654980</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:dixitomkar59@gmail.com">dixitomkar59@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Gym Hours</h3>
+                        <p>Monday - Friday: 6:00 AM - 10:00 PM</p>
+                        <p>Saturday - Sunday: 8:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-form-section">
+            <div class="container">
+                <h2>Send Us a Message</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="button">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Momentum Fitness Studio. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                    <li><a href="https://x.com/">Twitter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Calculators - Momentum Fitness Studio</title>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, ul, li, nav, header, footer, main, section, div, img, form, input, select, button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f39c12;
+            --text-color-dark: #333;
+            --text-color-light: #777;
+            --background-light: #f9f9f9;
+            --background-white: #fff;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color-dark);
+            background-color: var(--background-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--background-white);
+            padding: 15px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        main {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 22px;
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: var(--text-color-dark);
+            color: var(--background-light);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 1px solid #555;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer nav ul {
+            display: flex;
+        }
+
+        footer nav li {
+            margin-left: 12px;
+        }
+
+        footer nav a {
+            color: #ddd;
+            transition: color 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        footer nav a:hover {
+            color: var(--background-white);
+        }
+
+        #calculator-hero {
+            padding: 60px 0 40px 0;
+            text-align: center;
+        }
+
+        #calculator-hero h2 {
+            font-size: 2.6em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        #calculator-hero p {
+            font-size: 1.1em;
+            color: var(--text-color-light);
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .calculator-section {
+            padding: 40px 0;
+            background-color: var(--background-white);
+        }
+
+        .calculator-section:nth-child(odd) {
+            background-color: var(--background-light);
+        }
+
+
+        .calculator-section h2 {
+            font-size: 2em;
+            color: var(--text-color-dark);
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .calculator-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 25px;
+            background-color: var(--background-light);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 1em;
+            color: var(--text-color-dark);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1em;
+            color: var(--text-color-dark);
+            font-family: inherit;
+        }
+
+        .calculate-button-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+
+        .calculate-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--secondary-color);
+            color: var(--background-white);
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .calculate-button:hover {
+            background-color: #e08e0b;
+        }
+
+        .result-container {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: var(--background-white);
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .result-container h3 {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .result-container p {
+            font-size: 0.95em;
+            color: var(--text-color-light);
+            line-height: 1.6;
+        }
+
+        .diet-suggestion-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--background-white);
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .diet-suggestion-container h3 {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .diet-suggestion-container p, .diet-suggestion-container ul li {
+            font-size: 0.95em;
+            color: var(--text-color-light);
+            line-height: 1.6;
+        }
+
+        .diet-suggestion-container ul {
+            margin-top: 8px;
+            margin-left: 20px;
+        }
+
+        .diet-suggestion-container ul li {
+            list-style-type: disc;
+            padding: 4px 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Momentum Fitness Studio</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="calculators.html">Calculators</a></li>
+		    <li><a href="memberships.html">Memberships</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="calculator-hero">
+            <div class="container">
+                <h2>Fitness Calculators</h2>
+                <p>Use our helpful calculators to get insights into your fitness and nutrition. Calculate your BMI, estimate your calorie burn, and find your ideal weight, along with basic diet recommendations.</p>
+            </div>
+        </section>
+
+        <section class="calculator-section" id="bmi-calculator">
+            <div class="container">
+                <h2>BMI Calculator</h2>
+                <div class="calculator-container">
+                    <form id="bmiForm" class="calculator-form">
+                        <div class="form-group">
+                            <label for="height">Height (cm)</label>
+                            <input type="number" id="height" name="height" placeholder="Enter height in cm" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" name="weight" placeholder="Enter weight in kg" required>
+                        </div>
+                        <div class="calculate-button-container">
+                            <button type="submit" class="calculate-button">Calculate BMI</button>
+                        </div>
+                    </form>
+                    <div id="bmiResult" class="result-container" style="display:none;">
+                        <h3>Your BMI Result</h3>
+                        <p id="bmiValue"></p>
+                        <p id="bmiCategory"></p>
+                    </div>
+                    <div id="bmiDietSuggestion" class="diet-suggestion-container" style="display:none;">
+                        <h3>Diet Suggestions Based on Your BMI</h3>
+                        <p id="bmiDietText"></p>
+                        <ul id="bmiDietList" style="display:none;"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-section" id="ideal-weight-calculator">
+            <div class="container">
+                <h2>Ideal Weight Calculator</h2>
+                <div class="calculator-container">
+                    <form id="idealWeightForm" class="calculator-form">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="heightIdealWeight">Height (cm)</label>
+                            <input type="number" id="heightIdealWeight" name="heightIdealWeight" placeholder="Enter height in cm" required>
+                        </div>
+                        <div class="calculate-button-container">
+                            <button type="submit" class="calculate-button">Calculate Ideal Weight</button>
+                        </div>
+                    </form>
+                    <div id="idealWeightResult" class="result-container" style="display:none;">
+                        <h3>Your Ideal Weight Range</h3>
+                        <p id="idealWeightValue"></p>
+                    </div>
+                    <div id="idealWeightDietSuggestion" class="diet-suggestion-container" style="display:none;">
+                        <h3>Diet Suggestions for Maintaining Ideal Weight</h3>
+                        <p id="idealWeightDietText"></p>
+                        <ul id="idealWeightDietList" style="display:none;"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-section" id="calorie-burn-calculator">
+            <div class="container">
+                <h2>Calorie Burn Calculator</h2>
+                <div class="calculator-container">
+                    <form id="calorieBurnForm" class="calculator-form">
+                        <div class="form-group">
+                            <label for="activityType">Activity Type</label>
+                            <select id="activityType" name="activityType" required>
+                                <option value="">Select Activity</option>
+                                <option value="walking">Walking (3.0 mph)</option>
+                                <option value="running">Running (6.0 mph)</option>
+                                <option value="cycling">Cycling (12 mph)</option>
+                                <option value="swimming">Swimming (moderate)</option>
+                                <option value="weightlifting">Weightlifting (general)</option>
+                                <option value="yoga">Yoga</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Duration (minutes)</label>
+                            <input type="number" id="duration" name="duration" placeholder="Enter duration in minutes" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="weightCalorieBurn">Weight (kg) - for Calorie Calculation</label>
+                            <input type="number" id="weightCalorieBurn" name="weightCalorieBurn" placeholder="Enter weight in kg" required>
+                        </div>
+                        <div class="calculate-button-container">
+                            <button type="submit" class="calculate-button">Calculate Calories Burned</button>
+                        </div>
+                    </form>
+                    <div id="calorieBurnResult" class="result-container" style="display:none;">
+                        <h3>Calories Burned</h3>
+                        <p id="caloriesBurnedValue"></p>
+                    </div>
+                    <div id="calorieBurnDietSuggestion" class="diet-suggestion-container" style="display:none;">
+                        <h3>Post-Workout Nutrition Tips</h3>
+                        <p id="calorieBurnDietText"></p>
+                        <ul id="calorieBurnDietList" style="display:none;"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Momentum Fitness Studio. All rights reserved.</p>
+            <nav>
+                <ul>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                    <li><a href="https://x.com/">Twitter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bmiForm = document.getElementById('bmiForm');
+            const bmiResultDiv = document.getElementById('bmiResult');
+            const bmiValueSpan = document.getElementById('bmiValue');
+            const bmiCategorySpan = document.getElementById('bmiCategory');
+            const bmiDietSuggestionDiv = document.getElementById('bmiDietSuggestion');
+            const bmiDietTextP = document.getElementById('bmiDietText');
+            const bmiDietListUL = document.getElementById('bmiDietList');
+
+
+            bmiForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const heightCm = parseFloat(document.getElementById('height').value);
+                const weightKg = parseFloat(document.getElementById('weight').value);
+
+                if (isNaN(heightCm) || isNaN(weightKg) || heightCm <= 0 || weightKg <= 0) {
+                    alert("Please enter valid height and weight values.");
+                    return;
+                }
+
+                const heightM = heightCm / 100;
+                const bmi = weightKg / (heightM * heightM);
+                const bmiRounded = bmi.toFixed(1);
+
+                let category = "";
+                let dietSuggestionText = "";
+                let dietListItems = [];
+
+                if (bmi < 18.5) {
+                    category = "Underweight";
+                    dietSuggestionText = "To gain weight healthily, focus on nutrient-dense foods:";
+                    dietListItems = [
+                        "Increase intake of healthy fats (avocados, nuts, seeds, olive oil).",
+                        "Choose whole grains over refined grains (brown rice, quinoa, whole wheat bread).",
+                        "Include lean proteins in every meal (chicken, fish, beans, lentils).",
+                        "Eat frequent meals and snacks throughout the day.",
+                        "Consider smoothies with fruits, yogurt, and protein powder."
+                    ];
+                } else if (bmi >= 18.5 && bmi <= 24.9) {
+                    category = "Normal weight";
+                    dietSuggestionText = "Maintain your healthy weight by:";
+                    dietListItems = [
+                        "Eating a balanced diet with a variety of fruits and vegetables.",
+                        "Choosing lean proteins and whole grains.",
+                        "Limiting processed foods, sugary drinks, and unhealthy fats.",
+                        "Staying hydrated by drinking plenty of water.",
+                        "Practicing portion control."
+                    ];
+                } else if (bmi >= 25 && bmi <= 29.9) {
+                    category = "Overweight";
+                    dietSuggestionText = "To lose weight and improve health, consider these dietary changes:";
+                    dietListItems = [
+                        "Reduce calorie intake by focusing on whole, unprocessed foods.",
+                        "Increase vegetable intake and choose fiber-rich foods to feel full longer.",
+                        "Opt for lean protein sources and reduce red meat consumption.",
+                        "Limit sugary drinks, processed snacks, and excessive alcohol.",
+                        "Engage in regular physical activity alongside dietary changes."
+                    ];
+                } else {
+                    category = "Obese";
+                    dietSuggestionText = "Significant dietary changes are recommended for your health. Focus on:";
+                    dietListItems = [
+                        "Consulting a healthcare professional or registered dietitian for a personalized plan.",
+                        "Prioritizing whole, unprocessed foods and significantly reducing processed foods.",
+                        "Controlling portion sizes and being mindful of calorie intake.",
+                        "Increasing fiber intake from vegetables, fruits, and whole grains.",
+                        "Combining a healthy diet with a consistent exercise program. Seek professional guidance for both diet and exercise."
+                    ];
+                }
+
+                bmiValueSpan.textContent = `Your BMI is: ${bmiRounded}`;
+                bmiCategorySpan.textContent = `Category: ${category}`;
+                bmiDietTextP.textContent = dietSuggestionText;
+
+                bmiDietListUL.innerHTML = '';
+                dietListItems.forEach(itemText => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = itemText;
+                    bmiDietListUL.appendChild(listItem);
+                });
+
+                bmiResultDiv.style.display = 'block';
+                bmiDietSuggestionDiv.style.display = 'block';
+                bmiDietListUL.style.display = 'block';
+            });
+
+
+            const idealWeightForm = document.getElementById('idealWeightForm');
+            const idealWeightResultDiv = document.getElementById('idealWeightResult');
+            const idealWeightValueSpan = document.getElementById('idealWeightValue');
+            const idealWeightDietSuggestionDiv = document.getElementById('idealWeightDietSuggestion');
+            const idealWeightDietTextP = document.getElementById('idealWeightDietText');
+            const idealWeightDietListUL = document.getElementById('idealWeightDietList');
+
+
+            idealWeightForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const gender = document.getElementById('gender').value;
+                const heightCmIdealWeight = parseFloat(document.getElementById('heightIdealWeight').value);
+
+
+                if (!gender || isNaN(heightCmIdealWeight) || heightCmIdealWeight <= 0) {
+                    alert("Please select gender and enter a valid height.");
+                    return;
+                }
+
+                const heightInches = heightCmIdealWeight / 2.54;
+                let idealWeightKgMin, idealWeightKgMax;
+
+                if (gender === 'male') {
+                    idealWeightKgMin = 50 + 2.3 * Math.round((heightInches - 60));
+                    idealWeightKgMax = idealWeightKgMin + 5;
+                } else {
+                    idealWeightKgMin = 45.5 + 2.3 * Math.round((heightInches - 60));
+                    idealWeightKgMax = idealWeightKgMin + 5;
+                }
+
+                const idealWeightKgMinRounded = idealWeightKgMin.toFixed(1);
+                const idealWeightKgMaxRounded = idealWeightKgMax.toFixed(1);
+
+
+                idealWeightValueSpan.textContent = `Your ideal weight range is approximately ${idealWeightKgMinRounded} kg - ${idealWeightKgMaxRounded} kg.`;
+                idealWeightResultDiv.style.display = 'block';
+
+                const idealWeightDietSuggestionText = "To maintain your ideal weight range, focus on:";
+                const idealWeightDietListItems = [
+                    "Consuming a balanced diet with appropriate calorie intake to match your activity level.",
+                    "Regular physical activity that combines cardio and strength training.",
+                    "Mindful eating habits and portion control.",
+                    "Staying well-hydrated throughout the day.",
+                    "Consistent healthy lifestyle choices for long-term weight management."
+                ];
+
+                idealWeightDietTextP.textContent = idealWeightDietSuggestionText;
+                idealWeightDietListUL.innerHTML = '';
+                idealWeightDietListItems.forEach(itemText => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = itemText;
+                    idealWeightDietListUL.appendChild(listItem);
+                });
+
+                idealWeightDietSuggestionDiv.style.display = 'block';
+                idealWeightDietListUL.style.display = 'block';
+
+            });
+
+
+            const calorieBurnForm = document.getElementById('calorieBurnForm');
+            const calorieBurnResultDiv = document.getElementById('calorieBurnResult');
+            const caloriesBurnedValueSpan = document.getElementById('caloriesBurnedValue');
+            const calorieBurnDietSuggestionDiv = document.getElementById('calorieBurnDietSuggestion');
+            const calorieBurnDietTextP = document.getElementById('calorieBurnDietText');
+            const calorieBurnDietListUL = document.getElementById('calorieBurnDietList');
+
+
+            const activityMETs = {
+                walking: 3.5,
+                running: 9.8,
+                cycling: 6.8,
+                swimming: 7.0,
+                weightlifting: 5.0,
+                yoga: 2.5
+            };
+
+
+            calorieBurnForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const activity = document.getElementById('activityType').value;
+                const durationMinutes = parseFloat(document.getElementById('duration').value);
+                const weightKgCalorieBurn = parseFloat(document.getElementById('weightCalorieBurn').value);
+
+
+                if (!activity || isNaN(durationMinutes) || isNaN(weightKgCalorieBurn) || durationMinutes <= 0 || weightKgCalorieBurn <= 0) {
+                    alert("Please select a valid activity, duration, and weight.");
+                    return;
+                }
+
+                const metValue = activityMETs[activity];
+                const durationHours = durationMinutes / 60;
+                const caloriesBurned = metValue * weightKgCalorieBurn * durationHours;
+                const caloriesBurnedRounded = caloriesBurned.toFixed(0);
+
+                caloriesBurnedValueSpan.textContent = `You burned approximately ${caloriesBurnedRounded} calories during ${durationMinutes} minutes of ${activity}.`;
+                calorieBurnResultDiv.style.display = 'block';
+
+                let calorieBurnSuggestionText = "";
+                let calorieBurnDietListItems = [];
+
+                if (caloriesBurned > 600) {
+                    calorieBurnSuggestionText = "After an intense workout like this, your body needs proper refueling to recover and rebuild muscle:";
+                    calorieBurnDietListItems = [
+                        "Consume a protein-rich meal or snack within 1-2 hours (lean meats, poultry, fish, eggs, dairy, plant-based protein).",
+                        "Include complex carbohydrates to replenish glycogen stores (whole grains, sweet potatoes, fruits).",
+                        "Hydrate well with water and electrolytes.",
+                        "Consider a recovery smoothie with protein and fruits.",
+                        "Don't skip meals – consistent nutrition is key for recovery."
+                    ];
+                } else if (caloriesBurned > 300) {
+                    calorieBurnSuggestionText = "For moderate calorie burn workouts, focus on a balanced post-workout nutrition approach to support recovery:";
+                    calorieBurnDietListItems = [
+                        "Have a snack or meal containing both protein and carbohydrates within 2 hours post-exercise.",
+                        "Good snack options include yogurt with fruit, a handful of nuts and seeds, or a protein bar.",
+                        "Ensure your next main meal is well-balanced with protein, carbs, and healthy fats.",
+                        "Continue to hydrate adequately."
+                    ];
+                } else {
+                    calorieBurnSuggestionText = "For lower calorie burn activities, maintaining a healthy daily diet is most important:";
+                    calorieBurnDietListItems = [
+                        "Focus on your overall daily nutrition and balanced eating habits.",
+                        "Ensure you are meeting your daily needs for protein, carbohydrates, healthy fats, vitamins, and minerals.",
+                        "Even with lower calorie burn, post-workout hydration is still important.",
+                        "Use your workouts as part of a broader healthy lifestyle approach."
+                    ];
+                }
+                calorieBurnDietTextP.textContent = calorieBurnSuggestionText;
+                calorieBurnDietListUL.innerHTML = '';
+                calorieBurnDietListItems.forEach(itemText => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = itemText;
+                    calorieBurnDietListUL.appendChild(listItem);
+                });
+
+
+                calorieBurnDietSuggestionDiv.style.display = 'block';
+                calorieBurnDietListUL.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
